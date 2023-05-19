@@ -17,6 +17,7 @@ namespace Project.Source.Shapes
         protected int _width = 30, _height = 30; // Ширина и высота фигуры
         protected Color _color; // Цвет фигуры
         protected Pen _shapePen = new Pen(Color.Black, 1.0f);
+        protected bool isMoved = false;
 
         public abstract Shape clone(); // Создание клона
         public abstract void load(StreamReader stream);
@@ -41,6 +42,8 @@ namespace Project.Source.Shapes
         }
         public override void moveX(int num, int start, int end)
         {
+            if (isMoved)
+                return;
             if (_x - _width / 2 + num < start)
             {
                 _x = start + _width / 2;
@@ -54,10 +57,12 @@ namespace Project.Source.Shapes
             else
                 _x += num;
 
+            isMoved = true;
             notifyMoveX(num, start, end);
         }
         public override void moveY(int num, int start, int end)
         {
+            if (isMoved) return;
             if (_y - _height / 2 + num < start)
             {
                 _y = start + _height / 2;
@@ -71,6 +76,7 @@ namespace Project.Source.Shapes
             else
                 _y += num;
 
+            isMoved = true;
             notifyMoveY(num, start, end);
         }
         public override int getX() { return _x; }
@@ -92,6 +98,10 @@ namespace Project.Source.Shapes
         public override void setColor(Color color) 
         { 
             _color = color; 
+        }
+        public override void shapeMoved()
+        {
+            isMoved = false;
         }
     }
 }

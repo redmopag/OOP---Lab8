@@ -15,6 +15,7 @@ namespace Project.Source.Utils
     internal class CComposite : BaseShape
     {
         private List<BaseShape> _compShapes = new List<BaseShape>();
+        private bool isMoved = false;
         public int Count { get => _compShapes.Count; }
 
         // Добавление элемента в группу
@@ -33,13 +34,14 @@ namespace Project.Source.Utils
         }
         public override void moveX(int num, int start, int end)
         {
+            if (isMoved) return;
             if (canMoveX(num, start, end))
             {
                 foreach (BaseShape baseShape in _compShapes)
                     baseShape.moveX(num, start, end);
                 notifyMoveX(num, start, end);
             }
-
+            isMoved = true;
         }
         public override bool canMoveY(int num, int start, int end)
         {
@@ -50,12 +52,14 @@ namespace Project.Source.Utils
         }
         public override void moveY(int num, int start, int end)
         {
+            if (isMoved) return;
             if (canMoveY(num, start, end))
             {
                 foreach (BaseShape baseShape in _compShapes)
                     baseShape.moveY(num, start, end);
                 notifyMoveY(num, start, end);
             }
+            isMoved = true;
         }
         //--------------------------------------------------------------
 
@@ -114,6 +118,12 @@ namespace Project.Source.Utils
         public override int getY()
         {
             return _compShapes[0].getY();
+        }
+        public override void shapeMoved()
+        {
+            foreach (BaseShape baseShape in _compShapes)
+                baseShape.shapeMoved();
+            isMoved = false;
         }
     }
 }

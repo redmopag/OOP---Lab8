@@ -127,14 +127,22 @@ namespace Project.Source
             foreach (BaseShape shape in shapes)
             {
                 if (shape is CDecorator decorator)
+                {
                     decorator.moveX(num, start, end);
+                }
+                shape.shapeMoved();
             }
         }
         public void moveY(int num, int start, int end)
         {
-            foreach(BaseShape shape in shapes)
-                if(shape is CDecorator decorator)
+            foreach (BaseShape shape in shapes)
+            {
+                if (shape is CDecorator decorator)
+                {
                     decorator.moveY(num, start, end);
+                }
+                shape.shapeMoved();
+            }
         }
         public void changeSizeShapes(int num)
         {

@@ -69,5 +69,9 @@ namespace Project.Source.Utils
         {
             return _shape.getY();
         }
+        public override void shapeMoved()
+        {
+            _shape.shapeMoved(); 
+        }
     }
 }

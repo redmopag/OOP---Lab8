@@ -25,6 +25,7 @@ namespace Project.Source.Shapes
         public abstract string className();
         public abstract int getX();
         public abstract int getY();
+        public abstract void shapeMoved();
 
         public void subjectMoveX(int num, int start, int end)
         {
