@@ -1,4 +1,5 @@
 ﻿using Project.Source.Shapes;
+using Project.Source.Shapes.Utils;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -22,8 +23,8 @@ namespace Project.Source.Utils
             _shapePen.DashStyle = DashStyle.Dash;
         }
 
-        public bool inShape(int x, int y) { return _shape.inShape(x, y); }
-        public void draw(Graphics gr)
+        public override bool inShape(int x, int y) { return _shape.inShape(x, y); }
+        public override void draw(Graphics gr)
         {
             if (_shape is CComposite group)
             {
@@ -45,20 +46,28 @@ namespace Project.Source.Utils
         {
             _shapePen.Color = color;
         }
-        public void moveX(int num, int start, int end) { _shape.moveX(num, start, end); }
-        public void moveY(int num, int start, int end) { _shape.moveY(num, start, end); }
-        public void changeSize(int num) { _shape.changeSize(num);}
-        public void setColor(Color color) { _shape.setColor(color); }
+        public override void moveX(int num, int start, int end) { _shape.moveX(num, start, end); }
+        public override void moveY(int num, int start, int end) { _shape.moveY(num, start, end); }
+        public override void changeSize(int num) { _shape.changeSize(num);}
+        public override void setColor(Color color) { _shape.setColor(color); }
         public BaseShape getShape() { return _shape; }
-        public bool canMoveX(int num, int start, int end)
+        public override bool canMoveX(int num, int start, int end)
         {
             return _shape.canMoveX(num, start, end);
         }
-        public bool canMoveY(int num, int start, int end)
+        public override bool canMoveY(int num, int start, int end)
         {
             return _shape.canMoveY(num, start, end);
         }
-        public void save(StreamWriter stream) { _shape.save(stream); }
-        public string className() { return _shape.className(); }
+        public override void save(StreamWriter stream) { _shape.save(stream); }
+        public override string className() { return _shape.className(); }
+        public override int getX()
+        {
+            return _shape.getX();
+        }
+        public override int getY()
+        {
+            return _shape.getY();
+        }
     }
 }

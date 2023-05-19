@@ -17,6 +17,7 @@ namespace Project.Source
     {
         // Список фигур
         private MyArray<BaseShape> shapes = new MyArray<BaseShape>();
+        private MyArray<Line> _lines = new MyArray<Line>();
         //private List<BaseShape> shapes = new List<BaseShape>();
 
         // Нажата ли клавиша ctrl для выделения нескольких фигур последовательно
@@ -24,6 +25,8 @@ namespace Project.Source
         // Флаг для выбора нескольких элементов при одном нажатии
         private bool isMultiSelection = false;
         private Color shapesColor = Color.Black;
+        private bool isBind = false;
+        private Line line = new Line();
 
         public int Count { get { return shapes.Count; } }
 
@@ -100,6 +103,8 @@ namespace Project.Source
                     decorator.setColor(shapesColor);
                 shapes[i].draw(gr);
             }
+            for (int i = 0; i < _lines.Count; ++i)
+                _lines[i].draw(gr);
         }
         public void setMultiSelection()
         {
@@ -246,6 +251,52 @@ namespace Project.Source
                 }
             }
         }
-
+        public void bind() { isBind = true; }
+        public void bindShapes()
+        {
+            if (isBind && !isMultiSelection && !isCtrl)
+            {
+                foreach (BaseShape baseShape in shapes)
+                    if (baseShape is CDecorator decorator)
+                    {
+                        line.addShape(decorator.getShape());
+                    }
+                if(line.isFull())
+                {
+                    isBind = false;
+                    line.getStartShape().addObserver(line.getEndShape());
+                    _lines.Add(line.copy());
+                }
+            }
+        }
+        public void deleteLine()
+        {
+            int count = 0;
+            BaseShape shapeSubject = null, shapeObserver = null;
+            foreach (BaseShape baseShape in shapes)
+            {
+                if (baseShape is CDecorator decorator)
+                {
+                    foreach (Line line in _lines)
+                    {
+                        if (decorator.getShape() == line.getStartShape())
+                        {
+                            shapeSubject = decorator.getShape();
+                            ++count;
+                        }
+                        else if (decorator.getShape() == line.getEndShape())
+                        {
+                            shapeObserver = decorator.getShape();
+                            ++count;
+                        }
+                        if (count == 2)
+                        {
+                            _lines.Remove(line);
+                            shapeSubject.removeObserver(shapeObserver);
+                        }
+                    }
+                }
+            }
+        }
     }
 }

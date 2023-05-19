@@ -40,6 +40,8 @@
             this.buttonGroup = new System.Windows.Forms.Button();
             this.buttonUngroup = new System.Windows.Forms.Button();
             this.treeViewShapes = new System.Windows.Forms.TreeView();
+            this.buttonBind = new System.Windows.Forms.Button();
+            this.buttonUnbind = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDrawFigure)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxColor)).BeginInit();
             this.SuspendLayout();
@@ -51,9 +53,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBoxDrawFigure.BackColor = System.Drawing.SystemColors.ControlLight;
             this.pictureBoxDrawFigure.Location = new System.Drawing.Point(0, 0);
-            this.pictureBoxDrawFigure.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBoxDrawFigure.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBoxDrawFigure.Name = "pictureBoxDrawFigure";
-            this.pictureBoxDrawFigure.Size = new System.Drawing.Size(644, 524);
+            this.pictureBoxDrawFigure.Size = new System.Drawing.Size(483, 426);
             this.pictureBoxDrawFigure.TabIndex = 0;
             this.pictureBoxDrawFigure.TabStop = false;
             this.pictureBoxDrawFigure.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBoxDrawFigure_Paint);
@@ -62,10 +64,10 @@
             // checkBoxMultiSelection
             // 
             this.checkBoxMultiSelection.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.checkBoxMultiSelection.Location = new System.Drawing.Point(663, 38);
-            this.checkBoxMultiSelection.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkBoxMultiSelection.Location = new System.Drawing.Point(497, 31);
+            this.checkBoxMultiSelection.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.checkBoxMultiSelection.Name = "checkBoxMultiSelection";
-            this.checkBoxMultiSelection.Size = new System.Drawing.Size(115, 20);
+            this.checkBoxMultiSelection.Size = new System.Drawing.Size(86, 16);
             this.checkBoxMultiSelection.TabIndex = 2;
             this.checkBoxMultiSelection.Text = "Multi-selection";
             this.checkBoxMultiSelection.UseVisualStyleBackColor = true;
@@ -74,10 +76,10 @@
             // checkBoxCtrl
             // 
             this.checkBoxCtrl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.checkBoxCtrl.Location = new System.Drawing.Point(663, 12);
-            this.checkBoxCtrl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkBoxCtrl.Location = new System.Drawing.Point(497, 10);
+            this.checkBoxCtrl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.checkBoxCtrl.Name = "checkBoxCtrl";
-            this.checkBoxCtrl.Size = new System.Drawing.Size(115, 20);
+            this.checkBoxCtrl.Size = new System.Drawing.Size(86, 16);
             this.checkBoxCtrl.TabIndex = 1;
             this.checkBoxCtrl.Text = "Ctrl";
             this.checkBoxCtrl.UseVisualStyleBackColor = true;
@@ -87,10 +89,10 @@
             // 
             this.buttonCircle.AllowDrop = true;
             this.buttonCircle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonCircle.Location = new System.Drawing.Point(663, 65);
-            this.buttonCircle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonCircle.Location = new System.Drawing.Point(497, 53);
+            this.buttonCircle.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonCircle.Name = "buttonCircle";
-            this.buttonCircle.Size = new System.Drawing.Size(75, 23);
+            this.buttonCircle.Size = new System.Drawing.Size(56, 19);
             this.buttonCircle.TabIndex = 3;
             this.buttonCircle.Text = "Circle";
             this.buttonCircle.UseVisualStyleBackColor = true;
@@ -100,10 +102,10 @@
             // 
             this.buttonSquare.AllowDrop = true;
             this.buttonSquare.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSquare.Location = new System.Drawing.Point(663, 94);
-            this.buttonSquare.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonSquare.Location = new System.Drawing.Point(497, 76);
+            this.buttonSquare.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonSquare.Name = "buttonSquare";
-            this.buttonSquare.Size = new System.Drawing.Size(75, 23);
+            this.buttonSquare.Size = new System.Drawing.Size(56, 19);
             this.buttonSquare.TabIndex = 4;
             this.buttonSquare.Text = "Square";
             this.buttonSquare.UseVisualStyleBackColor = true;
@@ -113,10 +115,10 @@
             // 
             this.buttonTriangle.AllowDrop = true;
             this.buttonTriangle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonTriangle.Location = new System.Drawing.Point(663, 123);
-            this.buttonTriangle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonTriangle.Location = new System.Drawing.Point(497, 100);
+            this.buttonTriangle.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonTriangle.Name = "buttonTriangle";
-            this.buttonTriangle.Size = new System.Drawing.Size(75, 23);
+            this.buttonTriangle.Size = new System.Drawing.Size(56, 19);
             this.buttonTriangle.TabIndex = 5;
             this.buttonTriangle.Text = "Triangle";
             this.buttonTriangle.UseVisualStyleBackColor = true;
@@ -125,20 +127,20 @@
             // pictureBoxColor
             // 
             this.pictureBoxColor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBoxColor.Location = new System.Drawing.Point(777, 65);
-            this.pictureBoxColor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBoxColor.Location = new System.Drawing.Point(583, 53);
+            this.pictureBoxColor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBoxColor.Name = "pictureBoxColor";
-            this.pictureBoxColor.Size = new System.Drawing.Size(100, 23);
+            this.pictureBoxColor.Size = new System.Drawing.Size(75, 19);
             this.pictureBoxColor.TabIndex = 6;
             this.pictureBoxColor.TabStop = false;
             // 
             // buttonColor
             // 
             this.buttonColor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonColor.Location = new System.Drawing.Point(789, 94);
-            this.buttonColor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonColor.Location = new System.Drawing.Point(592, 76);
+            this.buttonColor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonColor.Name = "buttonColor";
-            this.buttonColor.Size = new System.Drawing.Size(75, 23);
+            this.buttonColor.Size = new System.Drawing.Size(56, 19);
             this.buttonColor.TabIndex = 7;
             this.buttonColor.Text = "Color";
             this.buttonColor.UseVisualStyleBackColor = true;
@@ -147,10 +149,9 @@
             // buttonGroup
             // 
             this.buttonGroup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonGroup.Location = new System.Drawing.Point(663, 170);
-            this.buttonGroup.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonGroup.Location = new System.Drawing.Point(497, 231);
             this.buttonGroup.Name = "buttonGroup";
-            this.buttonGroup.Size = new System.Drawing.Size(95, 28);
+            this.buttonGroup.Size = new System.Drawing.Size(71, 23);
             this.buttonGroup.TabIndex = 8;
             this.buttonGroup.Text = "Group";
             this.buttonGroup.UseVisualStyleBackColor = true;
@@ -159,10 +160,9 @@
             // buttonUngroup
             // 
             this.buttonUngroup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonUngroup.Location = new System.Drawing.Point(765, 170);
-            this.buttonUngroup.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonUngroup.Location = new System.Drawing.Point(573, 231);
             this.buttonUngroup.Name = "buttonUngroup";
-            this.buttonUngroup.Size = new System.Drawing.Size(100, 28);
+            this.buttonUngroup.Size = new System.Drawing.Size(75, 23);
             this.buttonUngroup.TabIndex = 9;
             this.buttonUngroup.Text = "Ungroup";
             this.buttonUngroup.UseVisualStyleBackColor = true;
@@ -172,18 +172,41 @@
             // 
             this.treeViewShapes.FullRowSelect = true;
             this.treeViewShapes.HideSelection = false;
-            this.treeViewShapes.Location = new System.Drawing.Point(663, 205);
+            this.treeViewShapes.Location = new System.Drawing.Point(497, 259);
+            this.treeViewShapes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.treeViewShapes.Name = "treeViewShapes";
-            this.treeViewShapes.Size = new System.Drawing.Size(201, 205);
+            this.treeViewShapes.Size = new System.Drawing.Size(152, 167);
             this.treeViewShapes.TabIndex = 10;
             this.treeViewShapes.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewShapes_AfterSelect);
+            // 
+            // buttonBind
+            // 
+            this.buttonBind.Location = new System.Drawing.Point(497, 159);
+            this.buttonBind.Name = "buttonBind";
+            this.buttonBind.Size = new System.Drawing.Size(71, 23);
+            this.buttonBind.TabIndex = 11;
+            this.buttonBind.Text = "Bind";
+            this.buttonBind.UseVisualStyleBackColor = true;
+            this.buttonBind.Click += new System.EventHandler(this.buttonBind_Click);
+            // 
+            // buttonUnbind
+            // 
+            this.buttonUnbind.Location = new System.Drawing.Point(575, 159);
+            this.buttonUnbind.Name = "buttonUnbind";
+            this.buttonUnbind.Size = new System.Drawing.Size(73, 23);
+            this.buttonUnbind.TabIndex = 12;
+            this.buttonUnbind.Text = "Unbind";
+            this.buttonUnbind.UseVisualStyleBackColor = true;
+            this.buttonUnbind.Click += new System.EventHandler(this.buttonUnbind_Click);
             // 
             // FormMain
             // 
             this.AllowDrop = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(901, 548);
+            this.ClientSize = new System.Drawing.Size(676, 445);
+            this.Controls.Add(this.buttonUnbind);
+            this.Controls.Add(this.buttonBind);
             this.Controls.Add(this.treeViewShapes);
             this.Controls.Add(this.buttonUngroup);
             this.Controls.Add(this.buttonGroup);
@@ -196,7 +219,7 @@
             this.Controls.Add(this.checkBoxCtrl);
             this.Controls.Add(this.pictureBoxDrawFigure);
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormMain";
             this.Text = "Main";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormMain_FormClosed);
@@ -223,6 +246,8 @@
         private System.Windows.Forms.Button buttonGroup;
         private System.Windows.Forms.Button buttonUngroup;
         private System.Windows.Forms.TreeView treeViewShapes;
+        private System.Windows.Forms.Button buttonBind;
+        private System.Windows.Forms.Button buttonUnbind;
     }
 }
 

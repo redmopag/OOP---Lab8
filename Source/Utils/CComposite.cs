@@ -24,45 +24,52 @@ namespace Project.Source.Utils
         }
         //--------------------------------------------------------------
         // Бизнес-логика движения группы
-        public bool canMoveX(int num, int start, int end)
+        public override bool canMoveX(int num, int start, int end)
         {
             foreach (BaseShape baseShape in _compShapes)
                 if (!baseShape.canMoveX(num, start, end))
                     return false;
             return true;
         }
-        public void moveX(int num, int start, int end)
+        public override void moveX(int num, int start, int end)
         {
-            if(canMoveX(num, start, end))
-                foreach(BaseShape baseShape in _compShapes)
+            if (canMoveX(num, start, end))
+            {
+                foreach (BaseShape baseShape in _compShapes)
                     baseShape.moveX(num, start, end);
+                notifyMoveX(num, start, end);
+            }
+
         }
-        public bool canMoveY(int num, int start, int end)
+        public override bool canMoveY(int num, int start, int end)
         {
             foreach (BaseShape baseShape in _compShapes)
                 if (!baseShape.canMoveY(num, start, end))
                     return false;
             return true;
         }
-        public void moveY(int num, int start, int end)
+        public override void moveY(int num, int start, int end)
         {
-            if(canMoveY(num, start, end))
-                foreach(BaseShape baseShape in _compShapes)
+            if (canMoveY(num, start, end))
+            {
+                foreach (BaseShape baseShape in _compShapes)
                     baseShape.moveY(num, start, end);
+                notifyMoveY(num, start, end);
+            }
         }
         //--------------------------------------------------------------
 
-        public void changeSize(int num)
+        public override void changeSize(int num)
         {
             foreach (BaseShape baseShape in _compShapes)
                 baseShape.changeSize(num);
         }
-        public void setColor(Color color)
+        public override void setColor(Color color)
         {
             foreach (BaseShape baseShape in _compShapes)
                 baseShape.setColor(color);
         }
-        public void draw(Graphics gr)
+        public override void draw(Graphics gr)
         {
             foreach (BaseShape baseShape in _compShapes)
                 baseShape.draw(gr);
@@ -85,20 +92,28 @@ namespace Project.Source.Utils
         {
             return _compShapes[index];
         }
-        public bool inShape(int x, int y)
+        public override bool inShape(int x, int y)
         {
             foreach (BaseShape baseShape in _compShapes)
                 if (baseShape.inShape(x, y))
                     return true;
             return false;
         }
-        public void save(StreamWriter stream)
+        public override void save(StreamWriter stream)
         {
             stream.WriteLine("Group");
             stream.WriteLine("Amount = " + _compShapes.Count);
             foreach (BaseShape baseShape in _compShapes)
                 baseShape.save(stream);
         }
-        public string className() { return "Group"; }
+        public override string className() { return "Group"; }
+        public override int getX()
+        {
+            return _compShapes[0].getX();
+        }
+        public override int getY()
+        {
+            return _compShapes[0].getY();
+        }
     }
 }

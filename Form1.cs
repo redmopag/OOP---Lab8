@@ -44,6 +44,7 @@ namespace Project
             {
                 shapes.addNewShape(shape, e.X, e.Y);
             }
+            shapes.bindShapes();
             shapes.notify();
             pictureBoxDrawFigure.Refresh();
         }
@@ -169,6 +170,17 @@ namespace Project
         private void treeViewShapes_AfterSelect(object sender, TreeViewEventArgs e)
         {
             tree.notify();
+            Refresh();
+        }
+
+        private void buttonBind_Click(object sender, EventArgs e)
+        {
+            shapes.bind();
+        }
+
+        private void buttonUnbind_Click(object sender, EventArgs e)
+        {
+            shapes.deleteLine();
             Refresh();
         }
     }
