@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,10 +13,10 @@ using Project.Source.Utils.AbstractFactory;
 
 namespace Project.Source
 {
-    class Container
+    class Container : CSubject, IObserver
     {
         // Список фигур
-        MyArray<BaseShape> shapes = new MyArray<BaseShape>();
+        private MyArray<BaseShape> shapes = new MyArray<BaseShape>();
         //private List<BaseShape> shapes = new List<BaseShape>();
 
         // Нажата ли клавиша ctrl для выделения нескольких фигур последовательно
@@ -24,13 +25,12 @@ namespace Project.Source
         private bool isMultiSelection = false;
         private Color shapesColor = Color.Black;
 
-        //private void Change(Shape item1, Shape item2)
-        //{
-        //    int index = shapes.IndexOf(item1);
-        //    shapes.RemoveAt(index);
-        //    shapes.Insert(index, item2);
-        //}
+        public int Count { get { return shapes.Count; } }
 
+        public BaseShape getShape(int index)
+        {
+            return shapes[index];
+        }
         // Снимает все выделения фигур
         public void resetAllSelections()
         {
@@ -228,5 +228,24 @@ namespace Project.Source
                     baseShape.save(stream);
             }
         }
+        public void subjectChange(CSubject subject)
+        {
+            if(subject is Tree tree)
+            {
+                TreeNode nodes = tree.getNodes();
+                for(int i = 0; i < nodes.Nodes.Count; ++i)
+                {
+                    if (nodes.Nodes[i].IsSelected)
+                    {
+                        if (!(shapes[i] is CDecorator))
+                            shapes[i] = new CDecorator(shapes[i]);
+                    }
+                    else
+                        if (shapes[i] is CDecorator decorator)
+                            shapes[i] = decorator.getShape();
+                }
+            }
+        }
+
     }
 }

@@ -22,6 +22,7 @@ namespace Project
         Shape shape;
         // Контейнер, хранящий фигуры и мтоды работы с ними
         private Project.Source.Container shapes = new Project.Source.Container();
+        private Tree tree;
 
         private const int step = 10;
         private const int size = 10;
@@ -30,6 +31,9 @@ namespace Project
         {
             InitializeComponent();
             pictureBoxColor.BackColor = colorDialogShapes.Color;
+            tree = new Tree(treeViewShapes);
+            shapes.addObserver(tree);
+            tree.addObserver(shapes);
         }
 
         private void pictureBoxDrawFigure_MouseDown(object sender, MouseEventArgs e)
@@ -40,6 +44,7 @@ namespace Project
             {
                 shapes.addNewShape(shape, e.X, e.Y);
             }
+            shapes.notify();
             pictureBoxDrawFigure.Refresh();
         }
 
@@ -50,6 +55,7 @@ namespace Project
             {
                 case Keys.Delete:
                     shapes.removeSelctions();
+                    shapes.notify();
                     pictureBoxDrawFigure.Refresh();
                     break;
                 case Keys.ControlKey:
@@ -135,12 +141,14 @@ namespace Project
         private void buttonGroup_Click(object sender, EventArgs e)
         {
             shapes.groupShapes();
+            shapes.notify();
             pictureBoxDrawFigure.Refresh();
         }
 
         private void buttonUngroup_Click(object sender, EventArgs e)
         {
             shapes.ungroupShapes();
+            shapes.notify();
             pictureBoxDrawFigure.Refresh();
         }
 
@@ -155,6 +163,13 @@ namespace Project
             string filepath = "saves.txt";
             IAbstractFactory factory = new CAbstractFactory();
             shapes.loadShapes(filepath, factory);
+            shapes.notify();
+        }
+
+        private void treeViewShapes_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            tree.notify();
+            Refresh();
         }
     }
 }

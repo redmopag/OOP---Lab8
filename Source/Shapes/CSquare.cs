@@ -56,5 +56,6 @@ namespace Project.Source.Shapes
             values[4] = values[4].Trim('[', ']');
             _color = Color.FromName(values[4]);
         }
+        public override string className() { return "Square"; }
     }
 }

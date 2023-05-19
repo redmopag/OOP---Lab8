@@ -59,5 +59,6 @@ namespace Project.Source.Utils
             return _shape.canMoveY(num, start, end);
         }
         public void save(StreamWriter stream) { _shape.save(stream); }
+        public string className() { return _shape.className(); }
     }
 }

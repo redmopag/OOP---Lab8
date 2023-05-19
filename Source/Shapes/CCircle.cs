@@ -54,5 +54,6 @@ namespace Project.Source.Shapes
             values[3] = values[3].Trim('[', ']');
             _color = Color.FromName(values[3]);
         }
+        public override string className() { return "Circle"; }
     }
 }

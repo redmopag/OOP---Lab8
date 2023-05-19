@@ -19,5 +19,6 @@ namespace Project.Source.Shapes
         void draw(Graphics gr); // Рисование фигуры
         bool inShape(int x, int y);
         void save(StreamWriter stream);
+        string className();
     }
 }

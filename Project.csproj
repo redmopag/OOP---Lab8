@@ -55,8 +55,10 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Source\Shapes\BaseShape.cs" />
+    <Compile Include="Source\Shapes\Line.cs" />
+    <Compile Include="Source\Tree.cs" />
     <Compile Include="Source\Utils\AbstractFactory\CAbstractFactory.cs" />
-    <Compile Include="Source\Utils\AbstractFactory\CSubject.cs" />
+    <Compile Include="Source\Utils\Observers\CSubject.cs" />
     <Compile Include="Source\Utils\AbstractFactory\IAbstractFactory.cs" />
     <Compile Include="Source\Utils\CComposite.cs" />
     <Compile Include="Source\Storage\Container.cs" />
@@ -66,7 +68,7 @@
     <Compile Include="Source\Shapes\CTriangle.cs" />
     <Compile Include="Source\Shapes\Shape.cs" />
     <Compile Include="Source\Utils\CDecorator.cs" />
-    <Compile Include="Source\Utils\IObserver.cs" />
+    <Compile Include="Source\Utils\Observers\IObserver.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

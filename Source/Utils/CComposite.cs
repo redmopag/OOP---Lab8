@@ -81,6 +81,10 @@ namespace Project.Source.Utils
         {
             return _compShapes[0];
         }
+        public BaseShape getShape(int index)
+        {
+            return _compShapes[index];
+        }
         public bool inShape(int x, int y)
         {
             foreach (BaseShape baseShape in _compShapes)
@@ -95,5 +99,6 @@ namespace Project.Source.Utils
             foreach (BaseShape baseShape in _compShapes)
                 baseShape.save(stream);
         }
+        public string className() { return "Group"; }
     }
 }

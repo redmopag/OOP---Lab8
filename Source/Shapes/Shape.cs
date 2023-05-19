@@ -1,4 +1,5 @@
 ﻿using Project.Source.Utils;
+using Project.Source.Utils.AbstractFactory;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Project.Source.Shapes
 {
-    abstract class Shape : BaseShape
+    abstract class Shape : CSubject, BaseShape 
     {
         protected int _x, _y; // Координаты центра фигуры
         protected int _width = 30, _height = 30; // Ширина и высота фигуры
@@ -21,6 +22,7 @@ namespace Project.Source.Shapes
         public abstract void draw(Graphics gr); // Рисование фигуры
         public abstract void save(StreamWriter stream);
         public abstract void load(StreamReader stream);
+        public abstract string className();
 
         public bool canMoveX(int num, int start, int end)
         {

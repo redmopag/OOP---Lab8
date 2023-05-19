@@ -67,7 +67,7 @@ namespace Project.Source
             ThrowIfInvalid(index);
             InsertAt(index, item);
         }
-        private int IndexOf(T x)
+        public int IndexOf(T x)
         {
             int i = 0;
             while ((i < size) && (!array[i].Equals(x)))
