@@ -17,16 +17,22 @@ namespace Project.Source
         public Tree(TreeView tree)
         {
             _tree = tree;
+            _tree.CheckBoxes = true;
         }
         private void processNode(TreeNode node, BaseShape shape)
         {
             TreeNode newNode = new TreeNode();
             if (shape is CDecorator decorator)
+            {
                 shape = decorator.getShape();
+                newNode.Checked = true;
+            }
             if (shape is CComposite group)
             {
                 for (int i = 0; i < group.Count; ++i)
                     processNode(newNode, group.getShape(i));
+                for (int i = 0; i < newNode.Nodes.Count; ++i)
+                    newNode.Nodes[i].Checked = false;
                 newNode.Text = group.className();
                 newNode.Tag = group;
             }

@@ -248,7 +248,7 @@ namespace Project.Source
                 TreeNode nodes = tree.getNodes();
                 for(int i = 0; i < nodes.Nodes.Count; ++i)
                 {
-                    if (nodes.Nodes[i].IsSelected)
+                    if (nodes.Nodes[i].Checked)
                     {
                         if (!(shapes[i] is CDecorator))
                             shapes[i] = new CDecorator(shapes[i]);

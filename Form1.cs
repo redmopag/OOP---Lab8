@@ -47,6 +47,7 @@ namespace Project
             shapes.bindShapes();
             shapes.notify();
             pictureBoxDrawFigure.Refresh();
+            treeViewShapes.Refresh();
         }
 
         // Если нажата клавиша delete - удаляет фигуру, ctrl - устанавливает флаг ctrl
@@ -181,6 +182,12 @@ namespace Project
         private void buttonUnbind_Click(object sender, EventArgs e)
         {
             shapes.deleteLine();
+            Refresh();
+        }
+
+        private void treeViewShapes_AfterCheck(object sender, TreeViewEventArgs e)
+        {
+            tree.notify();
             Refresh();
         }
     }
